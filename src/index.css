@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* League of Legends Automation System Design System */
+
+@layer base {
+  :root {
+    /* LoL-inspired color palette */
+    --background: 210 20% 8%;
+    --foreground: 46 69% 78%;
+
+    --card: 210 25% 12%;
+    --card-foreground: 46 69% 78%;
+
+    --popover: 210 25% 12%;
+    --popover-foreground: 46 69% 78%;
+
+    --primary: 46 69% 78%;
+    --primary-foreground: 210 20% 8%;
+    --primary-glow: 46 90% 85%;
+
+    --secondary: 207 85% 45%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 15% 18%;
+    --muted-foreground: 217 10% 55%;
+
+    --accent: 173 58% 45%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 15% 20%;
+    --input: 210 15% 18%;
+    --ring: 46 69% 78%;
+
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --info: 207 85% 45%;
+
+    /* Gaming-specific colors */
+    --gold: 46 69% 78%;
+    --blue-rift: 207 85% 45%;
+    --teal-nexus: 173 58% 45%;
+    --purple-void: 263 70% 50%;
+    --red-baron: 0 84% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-gaming: linear-gradient(135deg, hsl(var(--blue-rift)), hsl(var(--teal-nexus)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(var(--teal-nexus)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 25% 15%));
+
+    /* Shadows and effects */
+    --shadow-gold: 0 8px 32px hsl(var(--gold) / 0.3);
+    --shadow-gaming: 0 8px 32px hsl(var(--blue-rift) / 0.4);
+    --shadow-card: 0 4px 20px hsl(210 25% 5% / 0.8);
+    --glow-primary: 0 0 20px hsl(var(--gold) / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-gaming {
+    background: var(--gradient-gaming);
+  }
+  
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-gaming {
+    box-shadow: var(--shadow-gaming);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 2px 8px hsl(210 25% 5% / 0.4);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .text-gold {
+    color: hsl(var(--gold));
+  }
+  
+  .text-blue-rift {
+    color: hsl(var(--blue-rift));
+  }
+  
+  .text-teal-nexus {
+    color: hsl(var(--teal-nexus));
+  }
+  
+  .bg-gold {
+    background-color: hsl(var(--gold));
+  }
+  
+  .bg-blue-rift {
+    background-color: hsl(var(--blue-rift));
+  }
+  
+  .bg-teal-nexus {
+    background-color: hsl(var(--teal-nexus));
+  }
+  
+  .border-gold {
+    border-color: hsl(var(--gold));
+  }
+
+  .gaming-card {
+    @apply shadow-card transition-smooth hover:shadow-[0_4px_12px_hsl(207_85%_45%/0.2)] rounded-xl border border-border/50;
+    background: var(--gradient-card);
+  }
+
+  .status-indicator {
+    @apply inline-flex items-center justify-center w-3 h-3 rounded-full animate-pulse;
+  }
+
+  .status-online {
+    @apply bg-success shadow-[0_0_8px_hsl(var(--success))]  animate-pulse;
+  }
+
+  .status-processing {
+    @apply bg-warning shadow-[0_0_8px_hsl(var(--warning))] animate-pulse;
+  }
+
+  .status-offline {
+    @apply bg-destructive shadow-[0_0_8px_hsl(var(--destructive))] animate-pulse;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
